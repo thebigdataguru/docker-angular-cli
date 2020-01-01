@@ -1,0 +1,12 @@
+FROM thebigdataguru/angular-cli:node.11.9.0-alpine-angular.7.3.1
+
+ENV AWSCLI_VERSION "1.16.309"
+
+RUN apk add --update \
+    python \
+    python-dev \
+    py-pip \
+    build-base \
+    && pip install awscli==$AWSCLI_VERSION --upgrade --user \
+    && apk --purge -v del py-pip \
+    && rm -rf /var/cache/apk/*
