@@ -1,0 +1,6 @@
+FROM node:13.5.0-alpine
+
+LABEL authors="Ankur Sharma <ankursharma.niit@gmail.com>"
+
+RUN apk update && apk add --update alpine-sdk python && npm install @angular/cli@8.3.21  -g
+
